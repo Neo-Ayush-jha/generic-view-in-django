@@ -1,0 +1,9 @@
+{% extends 'parant.html' %}
+{% block content %}
+    <form action="" method="post">
+        <h1>Login form</h1>
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="submit" class="btn btn-success">
+    </form>
+{% endblock content %}

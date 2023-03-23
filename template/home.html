@@ -1,0 +1,31 @@
+{% extends 'parant.html' %}
+{% block content%}
+<form class="d-flex" role="search" method="get">
+    <input type="search" name="search" placeholder="Search" aria-label="Search">
+    <button type="submit">Search</button>
+  </form>
+                <a class="navbar-brand btn btn-info" href="{%url 'insert'%}">Insert Data</a>
+                <table class="table border">
+                    <tr>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>email</th>
+                        <th>contact</th>
+                        <th>city</th>
+                        <th>action</th>
+                    </tr>
+                    {% for student in object_list %}
+                    <tr>
+                        <td>{{student.id}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.email}}</td>
+                        <td>{{student.contact}}</td>
+                        <td>{{student.city}}</td>
+                        <td><a href="{%url 'DeleteStudentView' student.id  %}" class="btn btn-danger">X</a></td>
+                        <td><a href="{%url 'EditStudentView' student.id  %}">E</a></td>
+                        
+                    </tr>
+                    {% endfor %}
+                </table>
+            
+{% endblock content  %}
